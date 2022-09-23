@@ -11,6 +11,7 @@ namespace TEams
             program.Run();
         }
 
+        List<Department> departments = new List<Department>();
         private void Run()
         {
             // create some departments
@@ -43,7 +44,12 @@ namespace TEams
          */
         private void CreateDepartments()
         {
-
+            Department marketing = new Department(1, "Marketing");
+            Department sales = new Department(2, "Sales");
+            Department engineering = new Department(3, "Engineering");
+            departments.Add(marketing);
+            departments.Add(sales);
+            departments.Add(engineering);
         }
 
         /**
@@ -52,6 +58,10 @@ namespace TEams
         private void PrintDepartments()
         {
             Console.WriteLine("------------- DEPARTMENTS ------------------------------");
+            foreach (Department item in departments)
+            {
+                Console.WriteLine(item.Name);
+            }
 
         }
 

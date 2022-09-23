@@ -36,9 +36,13 @@ namespace TEams
             HireDate = hireDate;
         }
 
-
         public Employee() { }
 
+        public double RaiseSalary(double percent)
+        {
+            Salary = Salary * (1 + percent/100);
+            return Salary;
+        }
 
 
     }

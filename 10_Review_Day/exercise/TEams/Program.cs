@@ -13,10 +13,7 @@ namespace TEams
 
         List<Department> departments = new List<Department>();
         List<Employee> employees = new List<Employee>();
-       // employees[1].Salary = employees[1].RaiseSalary(10);
-
-        
-
+        Dictionary<string, Project> projects = new Dictionary<string, Project>();
 
         private void Run()
         {
@@ -30,7 +27,7 @@ namespace TEams
             CreateEmployees();
 
             // give Angie a 10% raise, she is doing a great job!
-
+            employees[1].Salary = employees[1].RaiseSalary(.10);
 
             // print all employees
             PrintEmployees();
@@ -77,7 +74,7 @@ namespace TEams
         private void CreateEmployees()
         {
             Employee deanJohnson = new Employee();
-            deanJohnson.EmployeeId =   1 ;
+            deanJohnson.EmployeeId = 1;
             deanJohnson.FirstName = "Dean";
             deanJohnson.LastName = "Johnson";
             deanJohnson.Email = "djohnson@teams.com";
@@ -96,7 +93,10 @@ namespace TEams
         private void PrintEmployees()
         {
             Console.WriteLine("\n------------- EMPLOYEES ------------------------------");
-
+            foreach(Employee item in employees)
+            {
+                Console.WriteLine(item.FullName + " (" + item.Salary + ") " + item.Department.Name);
+            }
         }
 
         /**
@@ -104,7 +104,15 @@ namespace TEams
          */
         private void CreateTeamsProject()
         {
-
+            Project teams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
+            foreach (Employee item in employees)
+            {
+                if (item.Department.Name == "Engineering")
+                {
+                    teams.TeamMembers.Add(item);
+                }
+            }
+            projects["TEams"] = teams;
         }
 
         /**
@@ -112,7 +120,15 @@ namespace TEams
          */
         private void CreateLandingPageProject()
         {
-
+            Project createLandingPage = new Project("Marketing Landing Page", "Lead Capture Landing Page for Marketing", "10/10/2020", "10/17/2020");
+            foreach (Employee item in employees)
+            {
+                if (item.Department.Name == "Marketing")
+                {
+                    createLandingPage.TeamMembers.Add(item);
+                }
+            }
+            projects["Marketing Landing Page"] = createLandingPage;
         }
 
         /**
@@ -121,7 +137,10 @@ namespace TEams
         private void PrintProjectsReport()
         {
             Console.WriteLine("\n------------- PROJECTS ------------------------------");
-
+            foreach (KeyValuePair<string, Project> kvp in projects)
+            {
+                Console.WriteLine(kvp.Key + ": " + kvp.Value.TeamMembers.Count);
+            }
         }
     }
 }

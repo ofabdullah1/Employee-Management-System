@@ -39,8 +39,8 @@ namespace TEams
         public Employee() { }
 
         public double RaiseSalary(double percent)
-        {
-            Salary = Salary * (1 + percent/100);
+        { 
+            Salary = Salary * (1 + percent);
             return Salary;
         }
 

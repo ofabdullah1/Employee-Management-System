@@ -6,11 +6,11 @@ namespace TEams
 {
     class Project
     {
-        string Name { get; set; }
-        string Description { get; set; }
-        string StartDate { get; set; }
-        string DueDate { get; set; }
-        List<Employee> TeamMembers { get; set; } = new List<Employee>();
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string StartDate { get; set; }
+        public string DueDate { get; set; }
+        public List<Employee> TeamMembers { get; set; } = new List<Employee>();
 
         public Project(string name, string description, string startDate, string dueDate)
         {

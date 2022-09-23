@@ -12,6 +12,12 @@ namespace TEams
         }
 
         List<Department> departments = new List<Department>();
+        List<Employee> employees = new List<Employee>();
+       // employees[1].Salary = employees[1].RaiseSalary(10);
+
+        
+
+
         private void Run()
         {
             // create some departments
@@ -70,7 +76,18 @@ namespace TEams
          */
         private void CreateEmployees()
         {
-
+            Employee deanJohnson = new Employee();
+            deanJohnson.EmployeeId =   1 ;
+            deanJohnson.FirstName = "Dean";
+            deanJohnson.LastName = "Johnson";
+            deanJohnson.Email = "djohnson@teams.com";
+            deanJohnson.Department = departments[2];
+            deanJohnson.HireDate = "08/21/2020";
+            Employee angieSmith = new Employee(2, "Angie", "Smith", "asmith@teams.com", departments[2], "08/21/2020");
+            Employee margaretThompson = new Employee(3, "Margaret", "Thompson", "mthompson@teams.com", departments[0], "08/21/2020");
+            employees.Add(deanJohnson);
+            employees.Add(angieSmith);
+            employees.Add(margaretThompson);
         }
 
         /**
